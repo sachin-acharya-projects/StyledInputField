@@ -1,0 +1,100 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: rgb(0, 0, 22);
+}
+
+.input-wrapper {
+    width: 390px;
+    height: 45px;
+
+    position: relative;
+    border-radius: 3mm;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: black;
+    box-shadow: rgba(#000, 0.2) 0px 5px 15px;
+
+    .input-field {
+        width: 100%;
+        height: 100%;
+
+        padding: 0px 20px;
+        border: none;
+        outline: none;
+        border-radius: 3mm;
+        color: rgb(213, 213, 231);
+        background: transparent;
+        font-size: 13px;
+        position: relative;
+        z-index: 2;
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+    }
+
+    .background {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+        width: 30px;
+        height: 30px;
+        background: white;
+        transition: 0.25s;
+        border-radius: 50%;
+        z-index: 1;
+
+        &.active {
+            top: 50%;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+
+    &:has(.background.active) {
+        input {
+            -webkit-text-security: none;
+            -moz-text-security: none;
+
+            color: rgb(9, 10, 36);
+        }
+
+        .material-symbols-outlined::before {
+            content: "visibility";
+        }
+    }
+
+    .material-symbols-outlined {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        translate: 0 -50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 2;
+
+        &::before {
+            position: absolute;
+            content: 'visibility_off';
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            background: white;
+            color: rgb(9, 10, 36);
+            transition: 0.25s;
+        }
+    }
+}
